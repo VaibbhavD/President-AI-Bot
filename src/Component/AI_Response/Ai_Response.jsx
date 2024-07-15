@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Loader from "./loader/Loader";
+import UsFlag from "../../Images/Usicon.png";
 
 const Chatgpt_res = (props) => {
   const [displayedText, setDisplayedText] = useState("");
@@ -7,6 +8,11 @@ const Chatgpt_res = (props) => {
   return (
     <>
       <div className="flex items-start gap-2.5 pb-5">
+        <img
+          src={UsFlag}
+          width={30}
+          className={`${!displayedText && "animate-spin-medium"}`}
+        />
         <div className="flex flex-col gap-1 w-full max-w-[600px]">
           <div className="flex items-center space-x-2 rtl:space-x-reverse">
             <span className="text-md font-semibold  text-pink-400">Gemini</span>
