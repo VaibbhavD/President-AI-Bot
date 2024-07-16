@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Loader from "./loader/Loader";
 import UsFlag from "../../Images/Usicon.png";
 
-const Chatgpt_res = (props) => {
+const AiResponse = (props) => {
   const [displayedText, setDisplayedText] = useState("");
 
   return (
@@ -30,4 +30,4 @@ const Chatgpt_res = (props) => {
     </>
   );
 };
-export default Chatgpt_res;
+export default AiResponse;
