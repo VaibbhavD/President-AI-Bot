@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Usertext from "../Usertext/Usertext";
-import AiResponse from "../AI_Response/Ai_Response";
 import UpArrow from "../../Images/up-arrow.png";
 import Context from "../../Context/Store";
 import Home from "../Home/Home";
