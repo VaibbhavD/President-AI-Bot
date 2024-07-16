@@ -1,14 +1,11 @@
 import React from "react";
+import Usericon from "../../Images/UserIcon.png";
 
 const Usertext = (props) => {
   return (
     <>
       <div className="flex items-start gap-2.5 pb-5 ">
-        <img
-          className="w-8 h-8 rounded-full"
-          src="https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png"
-          alt="User image"
-        />
+        <img className="w-8 h-8 rounded-full" src={Usericon} alt="User image" />
         <div className="flex flex-col gap-1 w-full max-w-[600px] text-white">
           <div className="flex items-center space-x-2 rtl:space-x-reverse">
             <span className="text-sm font-semibold  dark:text-white">You</span>
