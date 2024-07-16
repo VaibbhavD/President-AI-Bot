@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import UserInput from "./User_input";
-import Chatgpt_res from "./chat-gpt_response";
-import UpArrow from "../images/up-arrow.png";
-import Context from "../ContextStore/Store";
+import Usertext from "../Usertext/Usertext";
+import AiResponse from "../AI_Response/Ai_Response";
+import UpArrow from "../../Images/up-arrow.png";
+import Context from "../../Context/Store";
+import Home from "../Home/Home";
 import "../App.css";
-import Home from "./Home/Home";
 
 const Main = () => {
   const [userInput, setUserInput] = useState("");
@@ -22,8 +22,6 @@ const Main = () => {
     };
     context.AddMesages(data);
     setUserInput("");
-    // context.Setloader();
-    // console.log(context.loader);
   };
   const scrollToBottom = () => {
     if (context.Messages.length > 0) {
@@ -49,12 +47,10 @@ const Main = () => {
         ref={contentRef}
       >
         {context.Messages.length > 0 ? (
-          context.Messages.map((mess) => <UserInput user={mess} />)
+          context.Messages.map((mess) => <Usertext user={mess} />)
         ) : (
           <Home />
         )}
-
-        {/* Render chat responses here if applicable */}
       </div>
       <div className="w-full px-2 ">
         <form
@@ -77,15 +73,6 @@ const Main = () => {
             <img src={UpArrow} className="w-5 bg-white" alt="Send" />
           </button>
         </form>
-        <h1 className="text-white pt-1 text-center">
-          Made By{" "}
-          <a
-            href="https://my-portfolio-puxr.vercel.app/"
-            className="text-pink-500 "
-          >
-            Vaibhav D
-          </a>
-        </h1>
       </div>
     </div>
   );
