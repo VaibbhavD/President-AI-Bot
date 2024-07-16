@@ -5,28 +5,28 @@ import { Biden_Speech } from "../../OpenAI/BidenAI";
 import Context from "../../Context/Store";
 
 const Usertext = React.memo((props) => {
-  const context = useContext(Context);
   const [response, setResponse] = useState({});
+  const context = useContext(Context);
 
   useEffect(() => {
     const getResponse = async () => {
       try {
         const res = await Biden_Speech(props.user.data);
+        console.log("Send Biden Speech");
         const ai = {
           type: "ai",
           data: res,
           time: new Date().toLocaleTimeString(),
         };
         setResponse(ai);
-        context.Setloader(false); // Assuming this updates loader state in context
+        context.Setloader(false);
       } catch (error) {
         console.error("Error fetching AI response:", error);
-        // Handle error (e.g., set error state, show error message)
       }
     };
 
     getResponse();
-  }, [props.user.data, context]); // Ensure props.user.data and context changes trigger useEffect
+  }, [props.user.data]);
 
   return (
     <>
@@ -44,7 +44,7 @@ const Usertext = React.memo((props) => {
           </div>
         </div>
       </div>
-      <AiResponse user={response} />
+      {response && <AiResponse user={response} />}
     </>
   );
 });
