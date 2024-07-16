@@ -1,45 +1,29 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import UsFlag from "../../Images/Usicon.png";
 import Verify from "../../Images/Verified.png";
 
 const AiResponse = (props) => {
-  const [displayedText, setDisplayedText] = useState("");
+  const [displayedText, setDisplayedText] = useState(props.user.data);
 
   useEffect(() => {
     if (props.user.type === "ai") {
-      let i = 0;
-      let text = "";
-
-      setDisplayedText(""); // Reset displayedText when a new bot message is received
-      const typingEffect = () => {
-        if (i < props.user.data.length) {
-          text += props.user.data.charAt(i);
-          setDisplayedText(text);
-          i++;
-          setTimeout(typingEffect, 10); // Adjust typing speed here
-        }
-      };
-      typingEffect();
-    } else {
-      setDisplayedText(props.user.data);
+      setTimeout(() => {
+        setDisplayedText(props.user.data);
+      }, 1000);
     }
   }, [props.user.data, props.user.type]);
 
   return (
     <>
       <div className="flex items-start gap-2.5 pb-5">
-        <img
-          src={UsFlag}
-          width={30}
-          className={`${!displayedText && "animate-spin-medium"}`}
-        />
+        <img src={UsFlag} width={30} />
         <div className="flex flex-col gap-1 w-full max-w-[600px]">
           <div className="flex items-center space-x-2 rtl:space-x-reverse">
-            <span className=" text-md font-bold  text-pink-400">
+            <span className="text-md font-bold text-pink-400">
               US President{" "}
             </span>
-            <span className=" text-center text-xs font-normal text-white">
+            <span className="text-center text-xs font-normal text-white">
               - Joe Biden
             </span>
             <img
@@ -48,18 +32,37 @@ const AiResponse = (props) => {
               alt="User image"
             />
           </div>
-          <span className="text-[10px] font-normal text-gray-500 ">
+          <span className="text-[10px] font-normal text-gray-500">
             {props.user.time}
           </span>
-          <div className="flex flex-col leading-1.5 p-4 border-gray-200  rounded-e-xl rounded-es-xl ">
-            <p className="text-sm font-normal text-white">
-              {displayedText && displayedText}
-              {!displayedText && <Loader />}
-            </p>
+          <div className="flex flex-col leading-1.5 p-4 border-gray-200 rounded-e-xl text-white rounded-es-xl">
+            {displayedText ? (
+              <div>
+                <p>{displayedText.text}</p>
+                {displayedText.id && (
+                  <div>
+                    <p>
+                      Audio URL:{" "}
+                      {`https://peregrine-results.s3.amazonaws.com/${displayedText.id}.mp3`}
+                    </p>
+                    <audio controls>
+                      <source
+                        src={`https://peregrine-results.s3.amazonaws.com/${displayedText.id}.mp3`}
+                        type="audio/mpeg"
+                      />
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Loader />
+            )}
           </div>
         </div>
       </div>
     </>
   );
 };
+
 export default AiResponse;
