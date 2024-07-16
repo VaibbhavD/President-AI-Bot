@@ -43,17 +43,32 @@ function sanitizeText(text) {
   return text.replace(/[^a-zA-Z0-9 .,?!]/g, ""); // Example: only keep letters, numbers, and basic punctuation
 }
 
-export async function run(input) {
-  const chatSession = model.startChat({
-    generationConfig,
-    safetySettings,
-    history: [],
+let timeoutId;
+
+// Define your generationConfig, safetySettings, and model here
+
+// Debounced run function implementation
+const run = async (input) => {
+  clearTimeout(timeoutId);
+
+  return new Promise((resolve) => {
+    timeoutId = setTimeout(async () => {
+      const chatSession = model.startChat({
+        generationConfig,
+        safetySettings,
+        history: [],
+      });
+
+      const result = await chatSession.sendMessage(input);
+      const responseText = result.response.text();
+
+      // Sanitize the response text
+      const sanitizedResponse = sanitizeText(responseText);
+      console.log(sanitizedResponse);
+      resolve(sanitizedResponse);
+    }, 300); // Adjust debounce delay as needed (e.g., 300ms)
   });
+};
 
-  const result = await chatSession.sendMessage(input);
-  const responseText = result.response.text();
-
-  // Sanitize the response text
-  const sanitizedResponse = sanitizeText(responseText);
-  return sanitizedResponse;
-}
+// Export the run function
+export { run };
