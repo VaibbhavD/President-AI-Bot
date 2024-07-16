@@ -3,7 +3,7 @@ import Usertext from "../Usertext/Usertext";
 import UpArrow from "../../Images/up-arrow.png";
 import Context from "../../Context/Store";
 import Home from "../Home/Home";
-import "../App.css";
+import "../../App.css";
 
 const Main = () => {
   const [userInput, setUserInput] = useState("");
