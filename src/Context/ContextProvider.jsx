@@ -3,6 +3,7 @@ import Context from "./Store";
 
 const ContextProvider = (props) => {
   const [messages, SetMessages] = useState([]);
+  const [loading, Setloading] = useState(false);
 
   const AddMesages = (messages) => {
     SetMessages((prev) => [...prev, messages]);
@@ -10,6 +11,10 @@ const ContextProvider = (props) => {
 
   const ClearFun = () => {
     SetMessages([]);
+  };
+
+  const setloading = () => {
+    Setloading((prev) => !prev);
   };
 
   const context = {
