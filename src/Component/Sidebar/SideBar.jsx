@@ -1,13 +1,17 @@
 import { useContext, useState } from "react";
+import Context from "../../Context/Store";
 
 const Sidebar = () => {
   const [active, setActive] = useState(true);
+  const context = useContext(Context);
 
   function openSidebar() {
     setActive((prev) => !prev);
   }
 
-  const ClearHandler = () => {};
+  const ClearHandler = () => {
+    context.clearFun();
+  };
 
   return (
     <>
