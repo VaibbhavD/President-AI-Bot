@@ -41,7 +41,7 @@ const AiResponse = (props) => {
                 {displayedText && (
                   <div>
                     {/* <p>Audio URL: {displayedText.videoUrl}</p> */}
-                    <video width="320" height="240" controls>
+                    <video width="400" height="240" controls>
                       <source src={displayedText} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -49,9 +49,9 @@ const AiResponse = (props) => {
                 )}
               </div>
             ) : (
-              <div className="text-xs font-mono  m-auto">
+              <div className="text-xs font-sans m-auto">
                 <Loader />
-                <p className="text-yellow-200 pt-3">{status}</p>
+                <p className="text-gray-900 pt-3">{status}</p>
               </div>
             )}
           </div>
