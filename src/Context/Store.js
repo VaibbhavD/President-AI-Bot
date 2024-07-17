@@ -5,5 +5,7 @@ const Context = React.createContext({
   AddMesages: () => {},
   loader: false,
   Setloader: () => {},
+  ChangeStatus: () => {},
+  status: "",
 });
 export default Context;
