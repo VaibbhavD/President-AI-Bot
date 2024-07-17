@@ -19,6 +19,7 @@ export async function texttospeech(input) {
         output_format: "mp3",
         voice_engine: "PlayHT2.0",
         speed: 1,
+        emotion: "male_fearful",
       }),
     });
     const responsedata = await res.json();
