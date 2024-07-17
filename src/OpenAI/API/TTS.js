@@ -22,13 +22,13 @@ export async function texttospeech(input) {
       }),
     });
     const responsedata = await res.json();
-    console.log(responsedata);
     const audioUrl = responsedata._links[2].href;
     const TTSRes = {
       Url: audioUrl,
       id: responsedata.id,
       status: responsedata.status,
     };
+    console.log("TTS");
     return TTSRes;
   } catch (error) {
     console.log(error);

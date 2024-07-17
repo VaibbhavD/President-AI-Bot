@@ -21,8 +21,6 @@ export async function Biden_Speech(input, ChangeStatus) {
   );
   const data = GetVideoAPI(Video);
   ChangeStatus("AI Biden Genrating Response Video ...");
-  console.log(data);
-  console.log(text);
 
   return data;
 }

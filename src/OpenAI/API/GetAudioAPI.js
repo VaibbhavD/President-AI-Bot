@@ -24,11 +24,11 @@ export async function GetAudioUrl(input) {
     while (data.status === "pending") {
       await new Promise((resolve) => setTimeout(resolve, 10000)); // Wait for 10 seconds before checking again
       data = await fetchAudioUrl();
-      console.log("pending after 10 sec:", data);
+      console.log("pending after 10 sec Get AudioAPI:");
     }
 
     if (data.status === "complete") {
-      console.log("complete:", data);
+      console.log("complete AudioAPI:");
       return data;
     } else {
       throw new Error("Audio URL generation failed");

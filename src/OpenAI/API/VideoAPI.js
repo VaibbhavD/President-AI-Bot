@@ -18,9 +18,8 @@ export async function VideoAPI(input) {
     });
 
     if (response.ok) {
-      console.log("Request succeeded with status 201");
       const res = await response.json();
-      console.log(res);
+      console.log(" Video API Request succeeded with status 201");
       return res;
     } else if (response.status === 403) {
       console.log("Request failed with status 403");
