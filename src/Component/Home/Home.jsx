@@ -12,20 +12,20 @@ function Home() {
       <div className=" grid md:grid-cols-3 gap-5 text-center text-black 00 md:mb-14">
         <div className=" bg-stone-100 rounded-xl p-1 md:p-3 border-2 border-stone-200">
           <h1 className="text-xl text-[#B31942] font-bold">AI Biden</h1>
-          Gemini is the best way to directly access Google’s best family of AI
-          models.{" "}
+          AI Biden project potential of AI to enhance public speaking by
+          providing more coherent and effective responses.
         </div>
 
         <div className=" bg-stone-100 rounded-xl p-1 md:p-3 border-2 border-stone-200">
-          <h1 className="text-xl text-[#B31942] font-bold">US</h1>
-          Gemini is the best way to directly access Google’s best family of AI
-          models.{" "}
+          <h1 className="text-xl text-[#B31942] font-bold">Chat Bot</h1>
+          AI Biden is advanced AI model for answers elivered through video with
+          President Biden's cloned voice..
         </div>
 
         <div className=" bg-stone-100 rounded-xl p-1 md:p-3 border-2 border-stone-200">
-          <h1 className="text-xl text-[#B31942] font-bold">Joe Biden</h1>
-          Gemini is the best way to directly access Google’s best family of AI
-          models.{" "}
+          <h1 className="text-xl text-[#B31942] font-bold">President AI</h1>
+          Ai Biden response providing high-quality video responses and accurate
+          lip-syncin
         </div>
       </div>
     </div>
