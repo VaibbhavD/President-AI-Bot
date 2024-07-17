@@ -11,7 +11,7 @@ export async function Biden_Speech(input, ChangeStatus) {
   ChangeStatus("Now, let's convert this text into speech...");
   const speech = await texttospeech(text);
 
-  ChangeStatus("All done with the speech conversion...!");
+  ChangeStatus("Recording the Response speech...!");
   const Audio = await GetAudioUrl(speech);
 
   ChangeStatus("Now, let's get the video...");
