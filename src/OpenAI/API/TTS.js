@@ -16,7 +16,7 @@ export async function texttospeech(input) {
       body: JSON.stringify({
         text: s,
         voice:
-          "s3://voice-cloning-zero-shot/d9ff78ba-d016-47f6-b0ef-dd630f59414e/female-cs/manifest.json",
+          "s3://voice-cloning-zero-shot/9a31f0e2-a084-42bd-bc28-e162fc65daf7/original/manifest.json",
         output_format: "mp3",
         voice_engine: "PlayHT2.0",
         speed: 1,
