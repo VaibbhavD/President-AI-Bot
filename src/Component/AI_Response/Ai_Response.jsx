@@ -26,7 +26,7 @@ const AiResponse = (props) => {
               President of US
             </span>
             <img
-              className="w-3 h-3 rounded-full"
+              className="w-3 h-3 rounded-full mt-1"
               src={Verify}
               alt="User image"
             />
