@@ -1,6 +1,4 @@
 export async function VideoAPI(input) {
-  const url = "https://api.synclabs.so/lipsync";
-  const apiKey = "c1fe29de-7151-4688-b559-648a16f28f51";
   const data = {
     audioUrl: `https://peregrine-results.s3.amazonaws.com/${input.id}.mp3`,
     videoUrl:
@@ -10,11 +8,11 @@ export async function VideoAPI(input) {
   };
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch("https://api.synclabs.so/lipsync", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": apiKey,
+        "x-api-key": import.meta.env.VITE_API_KEY,
       },
       body: JSON.stringify(data),
     });

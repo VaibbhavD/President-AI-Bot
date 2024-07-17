@@ -3,15 +3,14 @@ export async function texttospeech(input) {
   if (input.length > 200) {
     s = input.slice(0, 200);
   }
-
   try {
     const res = await fetch(`https://api.play.ht/api/v2/tts`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
         accept: "application/json",
-        Authorization: `810b52860fef4b399b9174a51843d5e6`,
-        "X-USER-ID": `GXWel3DfSfVla6YGq6MknK84kdJ2`,
+        Authorization: import.meta.env.VITE_PLAYHT_API_KEY,
+        "X-USER-ID": import.meta.env.VITE_PLAYHT_USER_ID,
       },
       body: JSON.stringify({
         text: s,

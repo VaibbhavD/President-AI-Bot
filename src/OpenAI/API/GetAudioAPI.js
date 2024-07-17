@@ -1,15 +1,12 @@
 export async function GetAudioUrl(input) {
-  const apiKey = `810b52860fef4b399b9174a51843d5e6`;
-  const userId = `GXWel3DfSfVla6YGq6MknK84kdJ2`;
-
   async function fetchAudioUrl() {
     const response = await fetch(`https://api.play.ht/api/v2/tts/${input.id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         accept: "application/json",
-        Authorization: apiKey,
-        "X-USER-ID": userId,
+        Authorization: import.meta.env.VITE_PLAYHT_API_KEY,
+        "X-USER-ID": import.meta.env.VITE_PLAYHT_USER_ID,
       },
     });
 
