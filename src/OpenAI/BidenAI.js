@@ -1,5 +1,5 @@
 import { run } from "./API/OpenAi";
-import { texttospeech } from "./API/TTS";
+import { textToSpeech } from "./API/TTS";
 import { GetAudioUrl } from "./API/GetAudioAPI";
 import { VideoAPI } from "./API/VideoAPI";
 import { GetVideoAPI } from "./API/GetVideoAPI";
@@ -9,7 +9,7 @@ export async function Biden_Speech(input, ChangeStatus) {
   const text = await run(input);
 
   ChangeStatus("Now, let's convert this text into speech...");
-  const speech = await texttospeech(text);
+  const speech = await textToSpeech(text);
 
   ChangeStatus("Recording the Response speech...!");
   const Audio = await GetAudioUrl(speech);
