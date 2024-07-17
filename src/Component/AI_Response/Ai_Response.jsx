@@ -22,7 +22,7 @@ const AiResponse = (props) => {
         <div className="flex flex-col gap-1 w-full max-w-[600px]">
           <div className="flex items-center space-x-2 rtl:space-x-reverse">
             <span className="text-md font-bold text-[#B31942]">AI Biden </span>
-            <span className="text-center text-[10px] font-normal  text-white">
+            <span className="text-center text-[10px] font-bold pt-2 ">
               President of US
             </span>
             <img
@@ -51,7 +51,7 @@ const AiResponse = (props) => {
             ) : (
               <div className="text-xs font-mono  m-auto">
                 <Loader />
-                <p className="text-yellow-200 pt-3">"jhbv cbwhbcvw wjhbhwbvh</p>
+                <p className="text-yellow-200 pt-3">{status}</p>
               </div>
             )}
           </div>
