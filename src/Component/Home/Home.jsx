@@ -4,29 +4,28 @@ function Home() {
   return (
     <div className="h-full grid items-center justify-center text-white md:py-0 py-14 gap-10 ">
       <div className="grid gap-2 ">
-        <h1 className="text-6xl font-bold text-pink-400 ">Hello </h1>
-        <h2 className="text-3xl md:text-5xl font-bold text-[#444746]">
+        <h1 className="text-6xl font-bold text-[#B31942] ">Hello </h1>
+        <h2 className="text-3xl md:text-5xl font-bold text-[#0A3161]">
           How can I help you today?
         </h2>
       </div>
-      <div className=" grid md:grid-cols-3 gap-5 text-center text-blue-200 md:mb-14">
-        <div className=" bg-[#1E1F20] rounded-m p-1 md:p-3">
-          <h1 className="text-xl text-blue-600 font-bold">Google</h1>
+      <div className=" grid md:grid-cols-3 gap-5 text-center text-black 00 md:mb-14">
+        <div className=" bg-stone-100 rounded-xl p-1 md:p-3 border-2 border-stone-200">
+          <h1 className="text-xl text-[#B31942] font-bold">AI Biden</h1>
           Gemini is the best way to directly access Google’s best family of AI
           models.{" "}
         </div>
-        <div className=" bg-[#1E1F20] rounded-m p-1 md:p-3">
-          <h1 className="text-xl text-pink-400 font-bold">
-            <span className="text-blue-400">Gemini</span> AI
-          </h1>
-          Chat to supercharge your ideas, write, learn, plan and more.
+
+        <div className=" bg-stone-100 rounded-xl p-1 md:p-3 border-2 border-stone-200">
+          <h1 className="text-xl text-[#B31942] font-bold">US</h1>
+          Gemini is the best way to directly access Google’s best family of AI
+          models.{" "}
         </div>
-        <div className=" bg-[#1E1F20] rounded-m p-1">
-          <h1 className="text-xl text-blue-400 font-bold">
-            Gen<span className="text-pink-400">AI</span>
-          </h1>
-          Get help with writing, planning, learning, and more from Google GEN
-          AI.
+
+        <div className=" bg-stone-100 rounded-xl p-1 md:p-3 border-2 border-stone-200">
+          <h1 className="text-xl text-[#B31942] font-bold">Joe Biden</h1>
+          Gemini is the best way to directly access Google’s best family of AI
+          models.{" "}
         </div>
       </div>
     </div>
