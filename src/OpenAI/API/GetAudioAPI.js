@@ -25,7 +25,7 @@ export async function GetAudioUrl(input) {
   try {
     let data = await fetchAudioUrl();
     while (data.status === "pending") {
-      await new Promise((resolve) => setTimeout(resolve, 10000)); // Wait for 5 seconds before checking again
+      await new Promise((resolve) => setTimeout(resolve, 10000)); // Wait for 10 seconds before checking again
       data = await fetchAudioUrl();
       console.log("pending after 10 sec:", data);
     }
