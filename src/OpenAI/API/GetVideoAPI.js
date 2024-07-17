@@ -1,23 +1,36 @@
-export async function GetVideoAPI() {
-  try {
-    const response = await fetch(
-      `https://api.synclabs.so/lipsync/00d6e678-2771-46b9-bd8a-bbc1e9686dad`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": "c1fe29de-7151-4688-b559-648a16f28f51",
-        },
-      }
-    );
+export async function GetVideoAPI(input) {
+  const apiKey = "c1fe29de-7151-4688-b559-648a16f28f51";
+
+  async function fetchVideoStatus(id) {
+    const response = await fetch(`https://api.synclabs.so/lipsync/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+      },
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const data = await response.json();
-    console.log(data);
-    return data;
+    return response.json();
+  }
+
+  try {
+    let data = await fetchVideoStatus(input.id);
+    while (data.status === "PROCESSING" || data.status === "PENDING") {
+      console.log("Status is PROCESSING, waiting...");
+      await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait for 5 seconds
+      data = await fetchVideoStatus(input.id);
+    }
+
+    if (data.status === "COMPLETED") {
+      console.log(data);
+      return data;
+    } else {
+      throw new Error(`Unexpected status: ${data.status}`);
+    }
   } catch (error) {
     console.log("Get Video:", error);
     throw error; // Propagate the error up to the caller
