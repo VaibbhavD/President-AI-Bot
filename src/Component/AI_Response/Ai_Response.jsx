@@ -51,7 +51,10 @@ const AiResponse = (props) => {
             ) : (
               <div className="text-xs font-sans m-auto">
                 <Loader />
-                <p className="text-gray-900 pt-3">{status}</p>
+                <p className="text-black pt-3 ">{status}</p>
+                <p className="text-black text-center font-semibold">
+                  Wait a Moment...
+                </p>
               </div>
             )}
           </div>
