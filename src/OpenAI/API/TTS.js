@@ -1,15 +1,20 @@
 export async function texttospeech(input) {
+  let s = input;
+  if (input.length > 200) {
+    s = input.slice(0, 200);
+  }
+
   try {
     const res = await fetch(`https://api.play.ht/api/v2/tts`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
         accept: "application/json",
-        Authorization: `Bearer cf79595fe3c543c3a14986d91dfd000b`,
-        "X-USER-ID": `M46j5VIyLeh5xhCiro6KIwdP7i53`,
+        Authorization: `810b52860fef4b399b9174a51843d5e6`,
+        "X-USER-ID": `GXWel3DfSfVla6YGq6MknK84kdJ2`,
       },
       body: JSON.stringify({
-        text: input,
+        text: s,
         voice:
           "s3://voice-cloning-zero-shot/d9ff78ba-d016-47f6-b0ef-dd630f59414e/female-cs/manifest.json",
         output_format: "mp3",
@@ -20,7 +25,6 @@ export async function texttospeech(input) {
     const responsedata = await res.json();
     console.log(responsedata);
     const audioUrl = responsedata._links[2].href;
-    console.log(audioUrl);
     const TTSRes = {
       Url: audioUrl,
       id: responsedata.id,
