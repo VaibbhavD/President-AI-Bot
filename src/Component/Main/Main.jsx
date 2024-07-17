@@ -34,7 +34,7 @@ const Main = () => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-gray-800 lg:ml-72 lg:pl-10 pb-4 bg-black">
+    <div className="flex flex-col items-center justify-center h-screen text-gray-800 lg:ml-72 lg:pl-10 pb-4 ">
       <nav className="w-full h-4 py-7 flex justify-between items-center font-semibold text-lg text-white">
         {/* <select className="border-none font-bolder text-md p-2 rounded-md bg-transparent">
           <option className="bg-black">GeminiAi 4.0</option>
@@ -54,10 +54,10 @@ const Main = () => {
       <div className="w-full px-2">
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-2xl flex m-auto justify-center rounded-xl border-2 p-2 bg-[#1E1F20]"
+          className="w-full max-w-2xl flex m-auto justify-center rounded-xl border-2 p-2 bg-[#0A3161]"
         >
           <input
-            className="flex items-center text-white h-4 w-full min-w-2xl rounded-xl p-4 text-md outline-none font-bolder bg-[#1E1F20]"
+            className="flex items-center text-white h-4 w-full min-w-2xl rounded-xl p-4 text-md outline-none font-bolder bg-[#0A3161]"
             type="text"
             placeholder="Type your message…"
             value={userInput}
