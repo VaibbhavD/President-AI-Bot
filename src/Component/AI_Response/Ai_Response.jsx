@@ -8,9 +8,8 @@ const AiResponse = (props) => {
 
   useEffect(() => {
     if (props.user.type === "ai") {
-      setTimeout(() => {
-        setDisplayedText(props.user.data);
-      }, 1000);
+      console.log(props.user.data.videoUrl);
+      setDisplayedText(props.user.data.videoUrl);
     }
   }, [props.user.data, props.user.type]);
 
@@ -38,20 +37,14 @@ const AiResponse = (props) => {
           <div className="flex flex-col leading-1.5 p-4 border-gray-200 rounded-e-xl text-white rounded-es-xl">
             {displayedText ? (
               <div>
-                <p>{displayedText.text}</p>
-                {displayedText.id && (
+                <p>{displayedText}</p>
+                {displayedText && (
                   <div>
-                    <p>
-                      Audio URL:{" "}
-                      {`https://peregrine-results.s3.amazonaws.com/${displayedText.id}.mp3`}
-                    </p>
-                    <audio controls>
-                      <source
-                        src={`https://peregrine-results.s3.amazonaws.com/${displayedText.id}.mp3`}
-                        type="audio/mpeg"
-                      />
-                      Your browser does not support the audio element.
-                    </audio>
+                    {/* <p>Audio URL: {displayedText.videoUrl}</p> */}
+                    <video width="320" height="240" controls>
+                      <source src={displayedText} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                 )}
               </div>
