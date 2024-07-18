@@ -11,7 +11,7 @@ const Sidebar = () => {
   }
 
   const ClearHandler = () => {
-    context.clearFun();
+    window.location.reload();
   };
 
   return (
@@ -26,7 +26,7 @@ const Sidebar = () => {
         >
           <div class="text-gray-100 text-xl ">
             <div class="p-2.5 mt-1 flex items-center gap-2">
-              <img src={UsFlag} width={40} />
+              <img src={UsFlag} width={40} loading="lazy" />
               <span className="text-[#B31942] font-bold text-3xl">
                 AI Biden
               </span>
@@ -38,12 +38,8 @@ const Sidebar = () => {
             <div class="my-2 bg-gray-600 h-[1px]"></div>
           </div>
 
-          <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  text-white">
-            <i class="bi bi-house-door-fill"></i>
-            <span class="text-[15px] ml-4 font-bold">Home</span>
-          </div>
           <div
-            class="p-2.5 mt-3 flex items-center justify-between rounded-md px-4 duration-300 cursor-pointer text-white "
+            class="p-2.5 mt-3 flex items-center justify-between rounded-md px-4 duration-300 cursor-pointer hover:bg-stone-50 hover:bg-opacity-25 text-white "
             onClick={ClearHandler}
           >
             <span class="text-[15px] ml-4 font-bold">New Chat</span>
