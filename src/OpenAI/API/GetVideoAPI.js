@@ -21,13 +21,13 @@ export async function GetVideoAPI(input) {
   try {
     let data = await fetchVideoStatus(input.id);
     while (data.status === "PROCESSING" || data.status === "PENDING") {
-      console.log("Status is PROCESSING, waiting...");
+      console.log("Video URl PROCESSING, Waiting...");
       await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait for 5 seconds
       data = await fetchVideoStatus(input.id);
     }
 
     if (data.status === "COMPLETED") {
-      console.log(data);
+      console.log("Video URL Genrated Successfully !");
       return data;
     } else {
       throw new Error(`Unexpected status: ${data.status}`);

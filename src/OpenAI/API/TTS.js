@@ -29,7 +29,7 @@ export async function textToSpeech(input) {
       id: responsedata.id,
       status: responsedata.status,
     };
-    console.log("TTS");
+    console.log("Text to Speech Genrated");
     return TTSRes;
   } catch (error) {
     console.log(error);

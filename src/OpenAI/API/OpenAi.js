@@ -64,7 +64,7 @@ const run = async (input) => {
 
       // Sanitize the response text
       const sanitizedResponse = sanitizeText(responseText);
-      console.log(sanitizedResponse);
+      console.log("Text Genrated Successfylly by OpenAI");
       resolve(sanitizedResponse);
     }, 300); // Adjust debounce delay as needed (e.g., 300ms)
   });
