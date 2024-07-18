@@ -1,7 +1,7 @@
-export async function texttospeech(input) {
+export async function textToSpeech(input) {
   let s = input;
-  if (input.length > 200) {
-    s = input.slice(0, 200);
+  if (input.length > 300) {
+    s = input.slice(0, 300);
   }
   try {
     const res = await fetch(`https://api.play.ht/api/v2/tts`, {
