@@ -7,13 +7,12 @@ export async function textToSpeech(input) {
     const res = await fetch(
       `https://ai-biden.vercel.app/api/proxy?url=${encodeURIComponent(
         "https://api.play.ht/api/v2/tts"
-      )}&method=POST`,
+      )}`,
       {
         method: "POST",
         headers: {
-          "content-type": "application/json",
-          accept: "application/json",
-          Authorization: import.meta.env.VITE_PLAYHT_API_KEY,
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_PLAYHT_API_KEY}`,
           "X-USER-ID": import.meta.env.VITE_PLAYHT_USER_ID,
         },
         body: JSON.stringify({
@@ -27,20 +26,32 @@ export async function textToSpeech(input) {
         }),
       }
     );
+
+    if (!res.ok) {
+      throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+
     const responsedata = await res.json();
-    const audioUrl = responsedata._links[2].href;
-    const TTSRes = {
-      Url: audioUrl,
-      id: responsedata.id,
-      status: responsedata.status,
-    };
-    console.log("Text to Speech Generated");
-    return TTSRes;
+
+    // Check if _links[2] exists
+    if (responsedata._links && responsedata._links[2]) {
+      const audioUrl = responsedata._links[2].href;
+      const TTSRes = {
+        Url: audioUrl,
+        id: responsedata.id,
+        status: responsedata.status,
+      };
+      console.log("Text to Speech Generated");
+      return TTSRes;
+    } else {
+      throw new Error("Unexpected response format");
+    }
   } catch (error) {
-    console.log(error);
+    console.log("Error:", error);
     throw error;
   }
 }
+
 // export async function textToSpeech(input) {
 //   let s = input;
 //   if (input.length > 300) {
