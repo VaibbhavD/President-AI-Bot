@@ -48,7 +48,7 @@ let timeoutId;
 // Define your generationConfig, safetySettings, and model here
 
 // Debounced run function implementation
-const run = async (input) => {
+const run = async (input, context) => {
   clearTimeout(timeoutId);
 
   return new Promise((resolve) => {

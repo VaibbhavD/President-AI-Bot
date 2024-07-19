@@ -11,7 +11,7 @@ const Usertext = React.memo((props) => {
   useEffect(() => {
     const getResponse = async () => {
       try {
-        const res = await Biden_Speech(props.user.data, context.ChangeStatus);
+        const res = await Biden_Speech(props.user.data, context);
         console.log("Send Biden Speech");
         const ai = {
           type: "ai",
