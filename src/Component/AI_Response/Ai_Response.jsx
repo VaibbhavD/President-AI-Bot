@@ -6,7 +6,7 @@ import Context from "../../Context/Store";
 
 const AiResponse = (props) => {
   const [displayedText, setDisplayedText] = useState(props.user.data);
-  const { status } = useContext(Context);
+  const { status, loader } = useContext(Context);
 
   useEffect(() => {
     if (props.user.type === "ai") {
@@ -37,7 +37,7 @@ const AiResponse = (props) => {
           <div className="flex flex-col leading-1.5 p-4 border-gray-200 rounded-e-xl text-white rounded-es-xl">
             {displayedText ? (
               <div>
-                <p>AI BIDEN </p>
+                <p>AI BIDEN</p>
                 {displayedText && (
                   <div>
                     {/* <p>Audio URL: {displayedText.videoUrl}</p> */}
@@ -48,14 +48,18 @@ const AiResponse = (props) => {
                   </div>
                 )}
               </div>
-            ) : (
+            ) : loader ? (
               <div className="text-xs font-sans m-auto">
                 <Loader />
-                <p className="text-black pt-3 ">{status}</p>
+                <p className="text-black pt-3">{status}</p>
                 <p className="text-green-500 text-center font-bold">
                   Wait a Moment...
                 </p>
               </div>
+            ) : (
+              <p className="text-red-500 pt-3 text-center font-bold">
+                {status}
+              </p>
             )}
           </div>
         </div>
