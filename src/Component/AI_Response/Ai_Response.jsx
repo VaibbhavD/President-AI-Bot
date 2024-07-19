@@ -37,18 +37,17 @@ const AiResponse = (props) => {
           <div className="flex flex-col leading-1.5 p-4 border-gray-200 rounded-e-xl text-white rounded-es-xl">
             {displayedText ? (
               <div>
-                <p>AI BIDEN</p>
-                {displayedText && (
-                  <div>
-                    {/* <p>Audio URL: {displayedText.videoUrl}</p> */}
-                    <video width="400" height="240" controls>
-                      <source src={displayedText} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                )}
+                <p>AI BIDEN</p>(
+                <div>
+                  {/* <p>Audio URL: {displayedText.videoUrl}</p> */}
+                  <video width="400" height="240" controls>
+                    <source src={displayedText} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                )
               </div>
-            ) : loader ? (
+            ) : loader === true ? (
               <div className="text-xs font-sans m-auto">
                 <Loader />
                 <p className="text-black pt-3">{status}</p>
