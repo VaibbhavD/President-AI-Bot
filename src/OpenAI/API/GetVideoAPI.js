@@ -1,16 +1,13 @@
 export async function GetVideoAPI(input, context) {
   console.log(input.id);
   async function fetchVideoStatus(id) {
-    const response = await fetch(
-      `https://api.synclabs.so/lipsync/${input.id}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": import.meta.env.VITE_API_KEY,
-        },
-      }
-    );
+    const response = await fetch(`https://api.synclabs.so/lipsync/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": `${import.meta.env.VITE_API_KEY}`,
+      },
+    });
     console.log(response);
     return response.json();
   }
