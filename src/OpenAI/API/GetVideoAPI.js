@@ -8,7 +8,7 @@ export async function GetVideoAPI(input, context) {
         "x-api-key": `${import.meta.env.VITE_API_KEY}`,
       },
     });
-    console.log(response);
+    // console.log(response);
     return response.json();
   }
 
