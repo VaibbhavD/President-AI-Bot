@@ -19,6 +19,6 @@ export async function Biden_Speech(input, context) {
   context.ChangeStatus("AI Biden Genrating Response Video ...");
 
   context.ChangeStatus("Almost Done...");
-  const data = GetVideoAPI(Video, context);
+  const data = await GetVideoAPI(Video, context);
   return data;
 }
