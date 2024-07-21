@@ -59,7 +59,9 @@ const run = async (input, context) => {
         history: [],
       });
 
-      const result = await chatSession.sendMessage(input);
+      const result = await chatSession.sendMessage(
+        `suppose you are a joe biden president of US and i am asking to you- ${input}`
+      );
       const responseText = result.response.text();
 
       // Sanitize the response text
