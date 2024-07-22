@@ -1,14 +1,17 @@
 export async function GetAudioUrl(input, context) {
   async function fetchAudioUrl() {
-    const response = await fetch(`https://api.play.ht/api/v2/tts/${input.id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-        Authorization: import.meta.env.VITE_PLAYHT_API_KEY,
-        "X-USER-ID": import.meta.env.VITE_PLAYHT_USER_ID,
-      },
-    });
+    const response = await fetch(
+      `https://cors-anywhere.herokuapp.com/https://api.play.ht/api/v2/tts/${input.id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json",
+          Authorization: import.meta.env.VITE_PLAYHT_API_KEY,
+          "X-USER-ID": import.meta.env.VITE_PLAYHT_USER_ID,
+        },
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);

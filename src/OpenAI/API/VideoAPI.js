@@ -9,14 +9,17 @@ export async function VideoAPI(input, context) {
   };
 
   try {
-    const response = await fetch("https://api.synclabs.so/lipsync", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": import.meta.env.VITE_API_KEY,
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://cors-anywhere.herokuapp.com/https://api.synclabs.so/lipsync",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": import.meta.env.VITE_API_KEY,
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (response.ok) {
       const res = await response.json();
